@@ -126,7 +126,7 @@ window.onload = function () {
 function show(count) {
     let question = document.getElementById("questions");
 
-    question.innerHTML = '<h2>Q${count + 1}. ${questions[count].question}</h2>';
+    question.innerHTML = `<h2>Q${count + 1}. ${questions[count].question}</h2>`;
 
     toggleActive();
 }
