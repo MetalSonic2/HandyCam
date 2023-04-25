@@ -11,7 +11,8 @@
       color: #FAF0E6;
     }
 
-    /* attempt to center everything to the middle of the screen */
+    /* attempt to center everything to the mid/Users/eshkebab/Desktop/HandyCam/app.py
+    /Users/eshkebab/Desktop/HandyCam/Templates/homepage.htmldle of the screen */
     .centered-element {
       display: block;
       margin: 0 auto;
@@ -34,11 +35,11 @@
       font-size: 30px;
       line-height: 160px;
       color: #239FE4;
-      
+
       /* center horizontally */
       left: 50%;
       transform: translateX(-47%);
-  
+
     }
 
     /* the box thing behind the buttons */
@@ -62,14 +63,12 @@
 
     /* transition for when the user hovers + clicks buttons */
     button:hover {
-      background-color: #239FE4; 
+      background-color: #239FE4;
       border-color: rgba(250, 240, 230);
       transition: background-color 0.2s, border-color 0.2s;
     }
-    
 
-    /* button to create a room */
-    .createroom-button{
+     .create-room-button.clicked {
       position: absolute;
       background-color: #3B4551;
       border: 3px solid rgba(250, 240, 230, 0.3);
@@ -84,6 +83,25 @@
       z-index: 2;
     }
 
+
+    /* button to create a room */
+    .createroom-button{
+      position: absolute;
+      background-color: #3B4551;
+      border: 3px solid rgba(250, 240, 230, 0.3);
+      border-radius: 10px;
+      color: #FAF0E6;
+      font-size: x-large;
+      height: 80px;
+      width: 400px;
+      /* top: 50px; */
+      margin-top: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      cursor: pointer;
+    }
+
     /* button to join a room */
     .joinroom-button{
       position: absolute;
@@ -94,10 +112,12 @@
       font-size: x-large;
       height: 80px;
       width: 400px;
-      top: 150px;
+      /* top: 150px; */
+      margin-top: 9rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
+      cursor: pointer;
     }
 
 
@@ -111,10 +131,12 @@
       font-size: x-large;
       height: 80px;
       width: 400px;
-      top: 250px;
+      /* top: 250px; */
+      margin-top: 15rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
+      cursor: pointer;
     }
 
 
@@ -125,15 +147,16 @@
     	cursor: pointer;
     	width: 100px;
     	margin: 0 auto 50px;
-      top: 540px;
+      /* top: 540px; */
+      margin-top: 21.5rem;
       left: 50%;
       transform: translateX(20%);
     }
-    
+
     .checkbox_item:last-child .checkbox_wrap{
     	margin-bottom: 0;
     }
-    
+
     .checkbox_item .checkbox_wrap .checkbox_inp{
     	position: absolute;
     	top: 0;
@@ -141,14 +164,14 @@
     	opacity: 0;
     	z-index: 1;
     }
-    
+
     .checkbox_item .checkbox_wrap .checkbox_mark{
     	display: inline-block;
     	position: relative;
     	border-radius: 25px;
       border: 3px solid rgba(250, 240, 230, 0.3);
     }
-    
+
     .checkbox_item .checkbox_wrap .checkbox_mark:before,
     .checkbox_item .checkbox_wrap .checkbox_mark:after{
     	content: "";
@@ -164,73 +187,113 @@
     	border-radius: 5px;
     	overflow: hidden;
     }
-    
+
     .checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:before,
     .checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:after{
-    	  top: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        text-align: center;
-        line-height: 50px;
-        font-size: 25px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-style: normal;
-        color: #FAF0E6;
-        font-weight: bold;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 25px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      color: #FAF0E6;
+      font-weight: bold;
     }
-    
+
     .checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:before{
     	content: "RIGHT";
     	background: #191C22;
     }
-    
+
     .checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:after{
     	content: "LEFT";
     	left: -100px;
     	background: #191C22;
     }
-    
+
     .checkbox_item.citem_3 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:after{
     	left: 0;
     }
-    
+
     .checkbox_item.citem_3 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before{
     	left: 100px;
     }
-    
+
   </style>
 
   <body>
 
     <div class = "centered-elements">
-    <!-- handycam title -->
-    <div class = "handycamtitle">
-      <h1> HandyCam </h1>
-    </div>
-
-    <!-- buttons -->
-    <div class = "buttons">
-      <button class = "createroom-button"> Create a Room </button>
-
-      <button class = "joinroom-button"> Join a Room </button>
-
-      <button class = "test-button"> Test out HandyCam </button>
-
-      <!-- Stuff for right/left hand option -->
-      <div class="wrapper">
-        <div class="checkbox_item citem_3">
-          <label class="checkbox_wrap">
-            <input type="checkbox" name="checkbox" class="checkbox_inp">
-            <span class="checkbox_mark"></span>
-          </label>
-        </div>
-      </div>
-    </div>
-      
-    </div>
-
     
+      <!-- handycam title -->
+      <div class = "handycamtitle">
+        <h1> HandyCam </h1>
+      </div>
+
+      <!-- buttons -->
+      <div class = "buttons">
+      
+        <button class="createroom-button" onclick="createRoom(this)">Create a Room</button>
+
+        <button class="joinroom-button" onclick="joinRoom(this)">Join a Room</button>
+
+        <script>
+          function createRoom(button) {
+            // Generate Unique roomcode
+            const roomCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+            // Redirect to the new room
+            window.location.href = `ProjectWebsite.html?code=${roomCode}`;
+
+            // alert the user that of their roomcode
+            alert("Your roomcode is " + roomCode + ". Please share it for others to join.")
+            
+            // Ensures it looks the same when clicked
+            button.classList.add('clicked');
+          }
+          
+          function joinRoom(button) {
+              
+            // Prompt the user for the room code
+            const roomCode = prompt("Enter the room code:");
+              
+            // If the roomCode exists
+            if(roomCode){
+              // Open a new window to join the room
+              window.open(`ProjectWebsite.html?code=${roomCode}`);
+            }
+            else{
+              // Otherwise tell the user to enter a valid roomcode
+              alert("Please enter a valid room code.");
+            }
+            
+            // Ensures it looks the same when clicked
+            button.classList.add('clicked');
+
+          }
+
+        </script>
+
+        <button class = "test-button"> Test out HandyCam </button>
+
+        <!-- Stuff for right/left hand option -->
+        <div class="wrapper">
+          <div class="checkbox_item citem_3">
+            <label class="checkbox_wrap">
+              <input type="checkbox" name="checkbox" class="checkbox_inp">
+              <span class="checkbox_mark"></span>
+            </label>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+
+
   </body>
 
 </html>

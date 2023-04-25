@@ -5,9 +5,47 @@
 }
 
 body {
-  background-image: url(bckgrd.jfif);
+  background-image: url(bckgrd.jpg);
   background-position: center;
   background-size: cover;
   height: 100vh;
   font-family: sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.quiz {
+  display: grid;
+  grid-template-rows: 60px auto;
+  width: 600px;
+  height: 500px;
+  border-radius: 50px;
+}
+
+.quiz_header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.quiz_user {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 30px;
+}
+
+.quiz_body {
+  padding: 20px 30px;
+  background-color: skyblue;
 }

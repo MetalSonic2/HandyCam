@@ -126,7 +126,27 @@ window.onload = function () {
 function show(count) {
     let question = document.getElementById("questions");
 
-    question.innerHTML = '<h2>Q$(count+1). $(questions[count].question)</h2>';
+    question.innerHTML = '<h2>Q${count + 1}. ${questions[count].question}</h2>';
 
     toggleActive();
 }
+
+function next() {
+    if (question_count == question.length - 1) {
+        location.href = "final.html";
+    }
+    console.log(question_count);
+    //let user_answer = document.querySelector()
+
+    let user_answer = 0;
+
+    if (user_answer > 0.79) {
+        points += 10;
+        sessionStorage.setItem["points", points];
+    }
+    console.log(points);
+
+    question_count++;
+    show(question_count);
+}
+
