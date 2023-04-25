@@ -49,3 +49,42 @@ body {
   padding: 20px 30px;
   background-color: skyblue;
 }
+
+.btn-next {
+  border: none;
+  padding: 15px 25px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.btn-next:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: whitesmoke;
+}
+
+.award_icon {
+  display: block;
+  font-size: 350px;
+  color: white;
+}
+
+.username,
+.userpoints {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.border {
+  height: 600px;
+  width: 600px;
+  display: block;
+  justify-content: center;
+  margin: 0px 500px;
+  border-radius: 10px;
+  top: 100px;
+  border-color: transparent;
+}
