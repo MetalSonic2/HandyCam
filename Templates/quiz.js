@@ -132,7 +132,7 @@ function show(count) {
 }
 
 function next() {
-    if (question_count == question.length - 1) {
+    if (question_count == questions.length - 1) {
         location.href = "final.html";
     }
     console.log(question_count);
