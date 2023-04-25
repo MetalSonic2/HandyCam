@@ -32,8 +32,8 @@ while True:
         aspectRatio = h / w
 
         if aspectRatio > 1:
-            k = imgSize / h
-            wCal = math.ceil(k * w)
+            k = imgSize / h    #constant = 300/height
+            wCal = math.ceil(k * w) #calculated width
             if imgCrop.size > 0:
                 ImgResize = cv2.resize(imgCrop, (wCal, imgSize))
             else:
@@ -43,7 +43,7 @@ while True:
             wGap = math.ceil((imgSize - wCal) / 2)
             imgWhite[:, wGap:wCal + wGap] = imgResize
             prediction, index = classifier.getPrediction(imgWhite, draw=False)
-            print(prediction, index)
+            #print(prediction, index)
 
         else:
             k = imgSize / w
