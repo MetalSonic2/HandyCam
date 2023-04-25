@@ -227,67 +227,69 @@
   <body>
 
     <div class = "centered-elements">
-    <!-- handycam title -->
-    <div class = "handycamtitle">
-      <h1> HandyCam </h1>
-    </div>
-
-    <!-- buttons -->
-    <div class = "buttons">
-      
-
-<button class="createroom-button" onclick="createRoom(this)">Create a Room</button>
-
-  <button class="joinroom-button" onclick="joinRoom(this)">Join a Room</button>
-
-<script>
-  function createRoom(button) {
-    // Generate Unique roomcode
-    const roomCode = Math.random().toString(36).substring(2, 8).toUpperCase();
-
-    // Redirect to the new room
-    window.location.href = `ProjectWebsite.html?code=${roomCode}`;
-
-    // alert the user that of their roomcode
-    alert("Your roomcode is " + roomCode + ". Please share it for others to join.")
     
-    // Ensures it looks the same when clicked
-    button.classList.add('clicked');
-  }
-  
-    function joinRoom(button) {
-      
-    // Prompt the user for the room code
-    const roomCode = prompt("Enter the room code:");
-      
-      // If the roomCode exists
-      if(roomCode){
-        // Open a new window to join the room
-        window.open(`ProjectWebsite.html?code=${roomCode}`);
-      }
-      else{
-        // Otherwise tell the user to enter a valid roomcode
-        alert("Please enter a valid room code.");
-      }
-      
-      // Ensures it looks the same when clicked
-      button.classList.add('clicked');
-  }
-  </script>
-
-
-      <button class = "test-button"> Test out HandyCam </button>
-
-      <!-- Stuff for right/left hand option -->
-      <div class="wrapper">
-        <div class="checkbox_item citem_3">
-          <label class="checkbox_wrap">
-            <input type="checkbox" name="checkbox" class="checkbox_inp">
-            <span class="checkbox_mark"></span>
-          </label>
-        </div>
+      <!-- handycam title -->
+      <div class = "handycamtitle">
+        <h1> HandyCam </h1>
       </div>
-    </div>
+
+      <!-- buttons -->
+      <div class = "buttons">
+      
+        <button class="createroom-button" onclick="createRoom(this)">Create a Room</button>
+
+        <button class="joinroom-button" onclick="joinRoom(this)">Join a Room</button>
+
+        <script>
+          function createRoom(button) {
+            // Generate Unique roomcode
+            const roomCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+            // Redirect to the new room
+            window.location.href = `ProjectWebsite.html?code=${roomCode}`;
+
+            // alert the user that of their roomcode
+            alert("Your roomcode is " + roomCode + ". Please share it for others to join.")
+            
+            // Ensures it looks the same when clicked
+            button.classList.add('clicked');
+          }
+          
+          function joinRoom(button) {
+              
+            // Prompt the user for the room code
+            const roomCode = prompt("Enter the room code:");
+              
+            // If the roomCode exists
+            if(roomCode){
+              // Open a new window to join the room
+              window.open(`ProjectWebsite.html?code=${roomCode}`);
+            }
+            else{
+              // Otherwise tell the user to enter a valid roomcode
+              alert("Please enter a valid room code.");
+            }
+            
+            // Ensures it looks the same when clicked
+            button.classList.add('clicked');
+
+          }
+
+        </script>
+
+        <button class = "test-button"> Test out HandyCam </button>
+
+        <!-- Stuff for right/left hand option -->
+        <div class="wrapper">
+          <div class="checkbox_item citem_3">
+            <label class="checkbox_wrap">
+              <input type="checkbox" name="checkbox" class="checkbox_inp">
+              <span class="checkbox_mark"></span>
+            </label>
+          </div>
+        </div>
+        
+      </div>
 
     </div>
 
