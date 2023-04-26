@@ -57,6 +57,7 @@ body {
   color: white;
   border-radius: 50px;
   transition: 0.5s;
+  margin-top: 1rem;
 }
 
 .btn-next:hover {
@@ -87,4 +88,8 @@ body {
   border-radius: 10px;
   top: 100px;
   border-color: transparent;
+}
+
+.stream{
+  margin-top: 2rem;
 }
