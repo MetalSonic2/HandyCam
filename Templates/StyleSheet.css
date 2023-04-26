@@ -1,0 +1,322 @@
+
+/* General stuff */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background: #23282D; */
+}
+
+html {
+    background: #23282D;
+    color: #FAF0E6;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+}
+
+.handycamtitle {
+    /* alignment stuff */
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    margin: 0 auto;
+
+    /* font stuff */
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 160px;
+    color: #239fe4;
+
+}
+
+.square {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(250, 240, 230, 0.6);
+    border-radius: 10px;
+    z-index: 1;
+    background-color: #191C22;
+    width: 550px;
+    max-width: 80%;
+    height: 440px;
+
+
+    padding: 3rem;
+}
+
+
+
+ /* stuff for the left/right hand option */
+.checkbox_item .checkbox_wrap{
+    position: fixed;
+    display: block;
+    cursor: pointer;
+    width: 100px;
+
+    margin: 1.5rem auto 50px;
+    /* top: 540px; */
+    left: 40%;
+    transform: translateX(20%);
+}
+
+.checkbox_item:last-child .checkbox_wrap{
+    margin-bottom: 0;
+}
+    
+.checkbox_item .checkbox_wrap .checkbox_inp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark{
+    display: inline-block;
+    position: relative;
+    border-radius: 25px;
+    border: 3px solid rgba(250, 240, 230, 0.3);
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark:before,
+.checkbox_item .checkbox_wrap .checkbox_mark:after{
+    content: "";
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+/* slider style */
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark{
+    width: 100px;
+    height: 50px;
+    padding: 2px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:before,
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:after{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    color: #FAF0E6;
+    font-weight: bold;
+}
+
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:before{
+    content: "RIGHT";
+    background: #191C22;
+}
+
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:after{
+    content: "LEFT";
+    left: -100px;
+    background: #191C22;
+}
+
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:after{
+    left: 0;
+}
+
+.checkbox_item.citem_3 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before{
+    left: 100px;
+}
+
+
+
+button:hover {
+    background-color: #239FE4;
+    border-color: rgba(250, 240, 230);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+
+
+
+/* Homepage stuff */
+
+.create-room-button.clicked {
+    position: absolute;
+    background-color: #3B4551;
+    border: 3px solid rgba(250, 240, 230, 0.3);
+    border-radius: 10px;
+    color: #FAF0E6;
+    font-size: x-large;
+    height: 80px;
+    width: 400px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+
+/* button to create a room */
+.createroom-button{
+    position: absolute;
+    background-color: #3B4551;
+    border: 3px solid rgba(250, 240, 230, 0.3);
+    border-radius: 10px;
+    color: #FAF0E6;
+    font-size: x-large;
+    height: 80px;
+    width: 400px;
+    /* top: 50px; */
+    margin-top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* button to join a room */
+.joinroom-button{
+    position: absolute;
+    background-color: #3B4551;
+    border: 3px solid rgba(250, 240, 230, 0.3);
+    border-radius: 10px;
+    color: #FAF0E6;
+    font-size: x-large;
+    height: 80px;
+    width: 400px;
+    /* top: 150px; */
+    margin-top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+/* button to test out handycam */
+.test-button{
+    position: absolute;
+    background-color: #3B4551;
+    border: 3px solid rgba(250, 240, 230, 0.3);
+    border-radius: 10px;
+    color: #FAF0E6;
+    font-size: x-large;
+    height: 80px;
+    width: 400px;
+    /* top: 250px; */
+    margin-top: 15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Quizpage stuff */
+
+
+.quiz-button {
+    position: absolute;
+    background-color: #3B4551;
+    border: 3px solid rgba(250, 240, 230, 0.3);
+    border-radius: 10px;
+    color: #FAF0E6;
+    font-size: x-large;
+    height: 80px;
+    width: 400px;
+    margin-top: 8.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+
+label {
+    display: block;
+    padding: 1rem 0 .5rem;
+}
+
+#name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: white;
+    text-align: center;
+}
+
+#Fullname {
+    width: 90%;
+    border-radius: 5px;
+    padding: 0.3rem;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+input {
+    margin: auto;
+    display: block;
+}
+
+
+.popup {
+    position: fixed;
+    width: 500px;
+    height: 400px;
+    /* max-width: 80%; */
+    background: #fff;
+    border-radius: 6px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 3rem 20px;
+    color: #333;
+    visibility: hidden;
+    transition: 200ms ease-in-out;
+    z-index: 10;
+}
+
+.popup p {
+    margin: 2rem auto;
+    padding: 10px 15px;
+    text-align: left;
+    line-height: 23px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #239FE4;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
