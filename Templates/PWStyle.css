@@ -21,6 +21,15 @@ h1 {
     font-weight: normal;
 }
 
+.HeadTitle img{
+    max-height: 25px;
+}
+
+.HeadTitle a, a:visited{
+    text-decoration: none;
+    color: #239fe4;
+}
+
 .navbar {
     box-sizing: border-box;
     position: fixed;
