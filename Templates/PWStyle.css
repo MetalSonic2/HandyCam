@@ -106,7 +106,7 @@ h1 {
 .form-container .btn {
     background-color: #239FE4;;
     color: #FAF0E6;
-    padding: 16px 20px;
+    padding: 0.5rem 0.5rem;
     border-radius: 15px;
     border-color: rgba(246, 221, 221);
     cursor: pointer;
@@ -114,8 +114,9 @@ h1 {
     max-height: 50px;
     margin-bottom: 10px;
     opacity: 0.8;
-    font-size: 18px;
-    }
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+}
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
@@ -141,15 +142,21 @@ h1 {
     background: #191C22;
 }
 
+button:hover{
+    opacity: 1;
+}
+
 .camera-button {
     background-color: rgb(39, 49, 53);
     border-color: rgba(246, 221, 221, 0.6);
     border-radius: 15px;
-    color: rgba(247, 221, 221, 0.9);;
+    color: rgba(247, 221, 221, 0.9);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: x-large;
     height: 80px;
     width: 200px;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .share-button {
@@ -157,10 +164,12 @@ h1 {
     border-color: rgba(246, 221, 221, 0.6);;
     border-radius: 15px;
     color: rgba(247, 221, 221, 0.9);
-    font-size: xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
     height: 80px;
     width: 200px;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .end-button {
@@ -173,6 +182,7 @@ h1 {
     height: 80px;
     width: 200px;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .open-button {
@@ -185,6 +195,7 @@ h1 {
     height: 80px;
     width: 200px;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .record-button {
@@ -197,6 +208,7 @@ h1 {
     height: 80px;
     width: 200px;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .video-element {
