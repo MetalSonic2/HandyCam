@@ -7,9 +7,12 @@
   <title>Quiz Page</title>
 </head>
 
-<body>`
+<body>
+
   <div class="wrapper">
+
     <div class="quiz">
+
       <div class="quiz_header">
         <div class="quiz_user">
           <h4>WELCOME! <span class="name"></span></h4>
@@ -21,9 +24,25 @@
 
         </div>
 
-        <button class="btn-next" onclick="next()">Next Question</button>
+        <button class="btn-next" onclick="next()" id="nextBtn">Next Question</button>
+
+
+        <div class="stream">
+
+          <div class="row">
+
+            <div class="col-lg-8  offset-lg-2">
+              <h3 class="mt-5">Live Streaming</h3>
+              <img src="{{ url_for('video_feed') }}" width="80%">
+            </div>
+
+          </div>
+        </div>
+
       </div>
+
     </div>
+    
   </div>
 
   <script src="quiz.js"></script>
