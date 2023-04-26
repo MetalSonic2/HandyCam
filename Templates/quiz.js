@@ -133,7 +133,7 @@ function show(count) {
 
 function next() {
     if (question_count == questions.length - 1) {
-        location.href = "final.html";
+        location.href = "score-page.html";
     }
     console.log(question_count);
     //let user_answer = document.querySelector()
