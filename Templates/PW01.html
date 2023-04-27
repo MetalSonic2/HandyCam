@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="PW01.css">
+
+<title>Handy Cam Project</title>
+
+<body>
+  
+  <div class="HeadTitle">
+    <div class = navbar>
+      <i class="fa fa-american-sign-language-interpreting"></i>
+      <h1>
+        <a href="homepage01.html"><img src="HCLogo.png" alt="">
+          HandyCam
+        </a>
+      </h1>
+    </div>
+  </div>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8  offset-lg-2">
+              <h3 class="mt-5">Live Streaming</h3>
+              <img src="{{ url_for('video_feed') }}" width="50%">
+          </div>
+      </div>
+  </div>
+
+    
+  <div class="chat-popup" id="myForm">
+    <!-- <form action="/action_page.php" class="form-container">
+      <h2>Chat</h2>
+
+      <label for="msg" id="msgtext"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg"></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form> -->
+
+    <form onsubmit="return sendMessage();">
+        <input id="message01" placeholder="Enter message" autocomplete="off">
+    
+        <input type="submit">
+    </form>
+
+    <ul id="messages"></ul>
+    
+  </div>
+
+  <script>
+      function openForm() {
+          document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+      }
+  </script>
+
+  <div class="buttons">
+    <button class="camera-button"><i class="fa fa-video-camera"></i> Camera</button>
+    <button class="share-button" id="share-btn"><i class="fa fa-share-square-o"></i> Share</button>
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script>
+      var recorder;
+
+      document.getElementById('share-btn').onclick = function() {
+        navigator.mediaDevices.getDisplayMedia({video: true, audio: true}).then(function(stream) {
+          recorder = RecordRTC(stream, {
+            type: 'video'
+          });
+          recorder.startRecording();
+        });
+      };
+    </script>
+    
+    <button class="open-button" onclick="openForm()"><i class="fa fa-comments"></i> Chat</button>
+    <button class="record-button"><i class="fa fa-file-video-o"></i> Record</button>
+    <button class="end-button" onclick="window.close()">End Call</button>
+  </div>
+
+  <video id="video-element" autoplay></video>
+    <script>
+        var recorder;
+        var videoElement = document.getElementById('video-element'); 
+        document.getElementById('share-btn').onclick = function() {
+        navigator.mediaDevices.getDisplayMedia({video: true, audio: true}).then(function(stream) {
+            recorder = RecordRTC(stream, {
+            type: 'video'
+            });
+            recorder.startRecording();
+            
+            videoElement.srcObject = stream;
+        });
+        };
+    </script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyDuOvewbk87kaxVnM-9W6xOQbDf4QuXjqU",
+            authDomain: "chatbox-for-handycam.firebaseapp.com",
+            databaseURL: "https://chatbox-for-handycam-default-rtdb.firebaseio.com",
+            projectId: "chatbox-for-handycam",
+            storageBucket: "chatbox-for-handycam.appspot.com",
+            messagingSenderId: "704985572680",
+            appId: "1:704985572680:web:508f43cc779a04db073f7d"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var myName = prompt("Enter your name");
+
+        function sendMessage() {
+            // get message
+            var message = document.getElementById("message01").value;
+    
+            // save in database
+            firebase.database().ref("messages").push().set({
+                "sender": myName,
+                "message": message
+            });
+    
+            // prevent form from submitting
+            return false;
+        }
+
+        // listen for incoming messages
+        firebase.database().ref("messages").on("child_added", function (snapshot) {
+            var html = "";
+            // give each message a unique ID
+            html += "<li id='message-" + snapshot.key + "'>";
+            // show delete button if message is sent by me
+            if (snapshot.val().sender == myName) {
+                html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);'>";
+                    html += "Delete";
+                html += "</button>";
+            }
+            html += snapshot.val().sender + ": " + snapshot.val().message;
+            html += "</li>";
+    
+            document.getElementById("messages").innerHTML += html;
+        });
+
+        function deleteMessage(self) {
+            // get message ID
+            var messageId = self.getAttribute("data-id");
+        
+            // delete message
+            firebase.database().ref("messages").child(messageId).remove();
+        }
+ 
+        // attach listener for delete message
+        firebase.database().ref("messages").on("child_removed", function (snapshot) {
+            // remove message node
+            document.getElementById("message-" + snapshot.key).innerHTML = "This message has been removed";
+        });
+
+    </script>
+
+    <!-- <form onsubmit="return sendMessage();">
+        <input id="message01" placeholder="Enter message" autocomplete="off">
+    
+        <input type="submit">
+    </form>
+
+    <ul id="messages"></ul> -->
+
+</body>
+
+
+</html>
