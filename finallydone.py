@@ -31,8 +31,8 @@ current_prediction = {label: 0 for label in labels}
 def index():
     return render_template('homepage01.html')
 
-@app.route('/home')
-def home():
+@app.route('/project')
+def project():
     return render_template('PW01.html')
 
 @app.route('/test')
