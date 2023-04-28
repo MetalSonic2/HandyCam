@@ -39,6 +39,12 @@ def home():
 def test():
     return render_template('Quizpage01.html')
 
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
+
+
+
 
 def gen():
     global last_prediction
@@ -215,22 +221,10 @@ def gen2():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
+
 @app.route('/video_feed2')
 def video_feed2():
     return Response(gen2(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
-@app.route('/quiz')
-def quiz():
-    return render_template('Quizpage01.html')
-
-
-
-@app.route('/quiz1')
-def quiz1():
-    return render_template('quiz.html')
-
-
 
 if __name__ == '__main__':
     app.run(debug=True,port=5000, host='0.0.0.0')
