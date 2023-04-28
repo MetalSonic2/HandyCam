@@ -163,7 +163,7 @@ button:hover {
 
         <div class="handycamtitle">
             <h1>
-                <a href="homepage01.html"><img src="HCLogo.png" alt="">
+                <a href="homepage01.html"><img src="/static/HCLogo.png" alt="">
                 HandyCam
                 </a>
             </h1>
@@ -184,7 +184,7 @@ button:hover {
                     const roomCode = Math.random().toString(36).substring(2, 8).toUpperCase();
 
                     // Redirect to the new room
-                    window.location.href = `ProjectWebsite.html?code=${roomCode}`;
+                    window.location.href = `PW01.html?code=${roomCode}`;
 
                     // alert the user that of their roomcode
                     alert("Your roomcode is " + roomCode + ". Please share it for others to join.")
@@ -201,7 +201,7 @@ button:hover {
                     // If the roomCode exists
                     if(roomCode){
                     // Open a new window to join the room
-                    window.open(`ProjectWebsite.html?code=${roomCode}`);
+                    window.open(`PW01.html?code=${roomCode}`);
                     }
                     else{
                     // Otherwise tell the user to enter a valid roomcode
@@ -223,21 +223,6 @@ button:hover {
         </div>
 
     </div>
-
-    <script>
-
-        let popup = document.getElementById("popup");
-
-        function openPopup() {
-            popup.classList.add("open-popup");
-        }
-
-        function closePopup() {
-            popup.classList.remove("open-popup");
-            window.location.href = "quiz.html";
-        }
-
-    </script>
 
 </body>
 

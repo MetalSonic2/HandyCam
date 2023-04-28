@@ -57,85 +57,6 @@
         width: 99.5%;
     }
 
-    /*popup chat stuff*/
-
-    /* The popup chat - hidden by default */
-    .chat-popup {
-        display: none;
-        position: fixed;
-        top: 200 px;
-        bottom: 0 px;
-        right: 5px;
-        border-radius: 10 px;
-        border: 2px solid #f1f1f1;
-        border-color: rgba(246, 221, 221, 0.6);
-    }
-
-    .chat-popup h2{
-        margin: 0;
-    }
-
-    .chat-popup label{
-        margin-top: 1rem;
-    }
-
-    /* Add styles to the form container */
-    .form-container {
-        max-width: 300px;
-        height: 440px;
-        padding: 10px;
-        background-color: #202329;
-        color: #FAF0E6;
-        font-family: Lexend,Arial, sans-serif;
-    }
-
-    /* Full-width textarea */
-    .form-container textarea {
-        width: 100%;
-        margin: 5px 0 22px 0;
-        border-radius: 10px;
-        background: rgb(39, 49, 53);
-        resize: vertical;
-        max-height: 200px;
-        min-height: 30px;
-        color: #FAF0E6;
-        font-size: 16px;
-    }
-
-    /* When the textarea gets focus, do something */
-    .form-container textarea:focus {
-        background-color: rgb(39, 49, 53);
-        outline: none;
-    }
-
-    /* Set a style for the submit/login button */
-    .form-container .btn {
-        background-color: #239FE4;;
-        color: #FAF0E6;
-        padding: 0.5rem 0.5rem;
-        border-radius: 15px;
-        border-color: rgba(246, 221, 221);
-        cursor: pointer;
-        width: 100%;
-        max-height: 50px;
-        margin-bottom: 10px;
-        opacity: 0.8;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: x-large;
-    }
-
-    /* Add a red background color to the cancel button */
-    .form-container .cancel {
-        background-color: rgb(219, 46, 46);
-        border-radius: 15px;
-    }
-
-    /* Add some hover effects to buttons */
-    .form-container .btn:hover,
-    .open-button:hover {
-        opacity: 1;
-    }
-
 
     /* makeup*/
     .buttons {
@@ -224,6 +145,122 @@
         height: 100%;
     }
 
+
+    
+    /*popup chat stuff*/
+
+    /* The popup chat - hidden by default */
+    .chat-popup {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 600px;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        right: 15px;
+        border-radius: 10px;
+        border: 2px solid;
+        border-color: rgba(246, 221, 221, 0.6);
+        background-color: #23282D;
+        visibility: hidden;
+    }
+
+    .chat-header{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        
+        /* max-height: 50px; */
+        
+        padding-top: 0.8rem;
+        padding-left: 1rem;
+    }
+
+    .chat-popup h2{
+        margin: 0;
+        width: 100px;
+        color: #239FE4;
+        font-family: Lexend,Arial, sans-serif;
+        font-size: xx-large;
+    }
+
+    .chat-popup .close-button{
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+        color: #239FE4;
+        font-size: 2rem;
+        font-weight: bold;
+        position: absolute;
+        top: 20%;
+        right: 10%;
+
+    }
+
+    .chat-body{
+        flex: 1;
+        margin-top: 4rem;
+        background-color: #8bbee9;
+        max-height: 500px;
+    }
+
+    .scroll{
+        background-color: #8bbee9;
+        max-height: 500px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+    .scroll::-webkit-scrollbar{
+        display: none;
+    }
+
+    .chat-body ul{
+        list-style-type: none;
+        padding-left: 10px;
+    }
+
+    .chat-body li{
+        padding: 10px;
+        background-color: #239FE4;
+        width: fit-content;
+        max-width: 90%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .chat-footer form{
+        display: flex;
+    }
+
+    .chat-footer input{
+        flex: 1;
+        height: 35px;
+        border: none;
+        outline: none;
+        padding-left: 5px;
+        font-size: 16px;
+        border-radius: 0px 0px 0px 10px;
+    }
+
+    #sendbtn{
+        height: 37px;
+        border: none;
+        outline: none;
+        background-color: #23282D;
+        color: white;
+        cursor: pointer;
+        border-radius: 0px 0px 10px 0px;
+    }
+
+    #sendbtn:hover{
+        background-color: #239FE4;
+    }
+
 </style>
 
 <body>
@@ -232,7 +269,7 @@
     <div class = navbar>
       <i class="fa fa-american-sign-language-interpreting"></i>
       <h1>
-        <a href="homepage01.html"><img src="HCLogo.png" alt="">
+        <a href="homepage01.html"><img src="/static/HCLogo.png" alt="">
           HandyCam
         </a>
       </h1>
@@ -250,35 +287,26 @@
 
     
   <div class="chat-popup" id="myForm">
-    <!-- <form action="/action_page.php" class="form-container">
-      <h2>Chat</h2>
 
-      <label for="msg" id="msgtext"><b>Message</b></label>
-      <textarea placeholder="Type message.." name="msg"></textarea>
+    <div class="chat-header">
+        <h2>Chat</h2>
+        <button class="close-button" onclick="closeForm()">&times;</button>
+    </div>
 
-      <button type="submit" class="btn">Send</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form> -->
+    <div class="chat-body">
+        <div class="scroll">
+            <ul id="messages"></ul>
+        </div>
+    </div>
 
-    <form onsubmit="return sendMessage();">
-        <input id="message01" placeholder="Enter message" autocomplete="off">
-    
-        <input type="submit">
-    </form>
+    <div class="chat-footer">
+        <form onsubmit="return sendMessage();" id="messenger">
+            <input id="message01" placeholder="Enter message" autocomplete="off">
+            <input type="submit" value="Send" id="sendbtn">
+        </form>
+    </div>
 
-    <ul id="messages"></ul>
-    
   </div>
-
-  <script>
-      function openForm() {
-          document.getElementById("myForm").style.display = "block";
-      }
-
-      function closeForm() {
-          document.getElementById("myForm").style.display = "none";
-      }
-  </script>
 
   <div class="buttons">
     <button class="camera-button"><i class="fa fa-video-camera"></i> Camera</button>
@@ -298,6 +326,17 @@
     </script>
     
     <button class="open-button" onclick="openForm()"><i class="fa fa-comments"></i> Chat</button>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.visibility = "visible";
+        }
+  
+        function closeForm() {
+            document.getElementById("myForm").style.visibility = "hidden";
+        }
+    </script>
+
     <button class="record-button"><i class="fa fa-file-video-o"></i> Record</button>
     <button class="end-button" onclick="window.close()">End Call</button>
   </div>
@@ -337,7 +376,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        var myName = prompt("Enter your name");
+        // var myName = prompt("Enter your name");
 
         function sendMessage() {
             // get message
@@ -345,10 +384,12 @@
     
             // save in database
             firebase.database().ref("messages").push().set({
-                "sender": myName,
+                // "sender": myName,
                 "message": message
             });
-    
+
+            document.getElementById('messenger').reset();
+                
             // prevent form from submitting
             return false;
         }
@@ -356,43 +397,16 @@
         // listen for incoming messages
         firebase.database().ref("messages").on("child_added", function (snapshot) {
             var html = "";
+
             // give each message a unique ID
             html += "<li id='message-" + snapshot.key + "'>";
-            // show delete button if message is sent by me
-            if (snapshot.val().sender == myName) {
-                html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);'>";
-                    html += "Delete";
-                html += "</button>";
-            }
-            html += snapshot.val().sender + ": " + snapshot.val().message;
+            html += snapshot.val().message; 
             html += "</li>";
     
             document.getElementById("messages").innerHTML += html;
         });
 
-        function deleteMessage(self) {
-            // get message ID
-            var messageId = self.getAttribute("data-id");
-        
-            // delete message
-            firebase.database().ref("messages").child(messageId).remove();
-        }
- 
-        // attach listener for delete message
-        firebase.database().ref("messages").on("child_removed", function (snapshot) {
-            // remove message node
-            document.getElementById("message-" + snapshot.key).innerHTML = "This message has been removed";
-        });
-
     </script>
-
-    <!-- <form onsubmit="return sendMessage();">
-        <input id="message01" placeholder="Enter message" autocomplete="off">
-    
-        <input type="submit">
-    </form>
-
-    <ul id="messages"></ul> -->
 
 </body>
 
