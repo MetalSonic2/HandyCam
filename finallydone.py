@@ -29,7 +29,15 @@ current_prediction = {label: 0 for label in labels}
 #the page the camera goes to
 @app.route('/')
 def index():
-    return render_template('ProjectWebsite.html')
+    return render_template('homepage01.html')
+
+@app.route('/home')
+def home():
+    return render_template('PW01.html')
+
+@app.route('/test')
+def test():
+    return render_template('Quizpage01.html')
 
 
 def gen():
