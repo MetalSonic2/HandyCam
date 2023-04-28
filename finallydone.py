@@ -43,7 +43,9 @@ def test():
 def quiz():
     return render_template('quiz.html')
 
-
+@app.route('/scorepage')
+def scorepage():
+    return render_template('score-page.html')
 
 
 def gen():

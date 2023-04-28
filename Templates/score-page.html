@@ -4,20 +4,83 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <head>
-  <link rel="stylesheet" href="score-page.css">
   <title>Final-Score</title>
 </head>
 
+<style>
+body {
+  background-image: url("{{url_for('static',filename='bckgrd.jpg')}}");
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  font-family: sans-serif;
+}
+
+.trophy {
+  display: block;
+  font-size: 350px;
+  color: white;
+  text-align: center;
+}
+
+.username,
+.userpoints {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.border {
+  height: 700px;
+  width: 700px;
+  display: block;
+  justify-content: center;
+  margin: 0px 400px;
+  border-radius: 10px;
+  border-color: transparent;
+}
+
+.rh-button {
+  border: none;
+  padding: 15px 25px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 50px;
+  transition: 0.5s;
+  text-align: center;
+  position: relative;
+}
+
+.border {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
 <body>
   <div class="wrapper">
     <div class="border">
       <i class="fa fa-trophy trophy_icon" style="margin: 10px 0px 0px 130px; color: goldenrod;"></i>
       <h1 class="username"><span class="name" style="font-size: 50px; color: white;"></span><br>Well Done!</h1>
       <p class="userpoints">Your Score <span class="points" style="color: goldenrod"></span></p>
+      <button class="rh-button" onclick="returnHome()" style="margin-left: 285px;">Return Home</button>
     </div>
   </div>
 
-  <script src="user_info.js"></script>
+  <script>
+    let user_name = sessionStorage.getItem("name");
+    let user_points = sessionStorage.getItem("points");
+
+    document.querySelector("span.name").innerHTML = user_name;
+    document.querySelector("span.points").innerHTML = user_points;
+
+    function returnHome() {
+      window.location.href = '{{url_for('index')}}';
+    }
+  </script>
 
 </body>
 
