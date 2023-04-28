@@ -73,10 +73,8 @@ html {
     padding: 3rem;
 }
 
-
-
  /* stuff for the left/right hand option */
-.checkbox_item .checkbox_wrap{
+.handSlider_item .handSlider_wrap{
     position: fixed;
     display: block;
     cursor: pointer;
@@ -88,11 +86,11 @@ html {
     transform: translateX(20%);
 }
 
-.checkbox_item:last-child .checkbox_wrap{
+.handSlider_item:last-child .handSlider_wrap{
     margin-bottom: 0;
 }
     
-.checkbox_item .checkbox_wrap .checkbox_inp{
+.handSlider_item .handSlider_wrap .handSlider_inp{
     position: absolute;
     top: 0;
     left: 0;
@@ -100,22 +98,22 @@ html {
     z-index: 1;
 }
 
-.checkbox_item .checkbox_wrap .checkbox_mark{
+.handSlider_item .handSlider_wrap .handSlider_mark{
     display: inline-block;
     position: relative;
     border-radius: 25px;
     border: 3px solid rgba(250, 240, 230, 0.3);
 }
 
-.checkbox_item .checkbox_wrap .checkbox_mark:before,
-.checkbox_item .checkbox_wrap .checkbox_mark:after{
+.handSlider_item .handSlider_wrap .handSlider_mark:before,
+.handSlider_item .handSlider_wrap .handSlider_mark:after{
     content: "";
     position: absolute;
     transition: all 0.5s ease;
 }
 
 /* slider style */
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark{
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_mark{
     width: 100px;
     height: 50px;
     padding: 2px;
@@ -123,8 +121,8 @@ html {
     overflow: hidden;
 }
 
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:before,
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:after{
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_mark:before,
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_mark:after{
     top: 0;
     left: 0;
     width: 100%;
@@ -138,22 +136,22 @@ html {
     font-weight: bold;
 }
 
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:before{
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_mark:before{
     content: "RIGHT";
     background: #191C22;
 }
 
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_mark:after{
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_mark:after{
     content: "LEFT";
     left: -100px;
     background: #191C22;
 }
 
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:after{
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_inp:checked ~ .handSlider_mark:after{
     left: 0;
 }
 
-.checkbox_item.citem_3 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before{
+.handSlider_item.citem_3 .handSlider_wrap .handSlider_inp:checked ~ .handSlider_mark:before{
     left: 100px;
 }
 
@@ -278,10 +276,10 @@ input {
                 <input type="text" id="Fullname">
 
                 <div class="wrapper">
-                    <div class="checkbox_item citem_3">
-                        <label class="checkbox_wrap">
-                            <input type="checkbox" name="checkbox" class="checkbox_inp">
-                            <span class="checkbox_mark"></span>
+                    <div class="handSlider_item citem_3">
+                        <label class="handSlider_wrap">
+                            <input type="checkbox" name="handSlider" class="handSlider_inp">
+                            <span class="handSlider_mark"></span>
                         </label>
                     </div>
                 </div>

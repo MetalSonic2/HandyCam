@@ -295,7 +295,7 @@
 
     <div class="chat-body">
         <div class="scroll">
-            <ul id="messages"></ul>
+            <ul id="msg"></ul>
         </div>
     </div>
 
@@ -357,13 +357,14 @@
         };
     </script>
 
-
+    <!-- Firebase JS SDK -->
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 
+    <!-- Firebase database -->
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
 
     <script>
-
+        // Web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDuOvewbk87kaxVnM-9W6xOQbDf4QuXjqU",
             authDomain: "chatbox-for-handycam.firebaseapp.com",
@@ -373,29 +374,27 @@
             messagingSenderId: "704985572680",
             appId: "1:704985572680:web:508f43cc779a04db073f7d"
         };
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        // var myName = prompt("Enter your name");
-
         function sendMessage() {
-            // get message
+            // recieve message
             var message = document.getElementById("message01").value;
     
-            // save in database
-            firebase.database().ref("messages").push().set({
-                // "sender": myName,
+            // store in database
+            firebase.database().ref("msg").push().set({
                 "message": message
             });
 
             document.getElementById('messenger').reset();
                 
-            // prevent form from submitting
+            // prevent form from refershing and submitting 
             return false;
         }
 
-        // listen for incoming messages
-        firebase.database().ref("messages").on("child_added", function (snapshot) {
+        // receive messages
+        firebase.database().ref("msg").on("child_added", function (snapshot) {
             var html = "";
 
             // give each message a unique ID
@@ -403,7 +402,7 @@
             html += snapshot.val().message; 
             html += "</li>";
     
-            document.getElementById("messages").innerHTML += html;
+            document.getElementById("msg").innerHTML += html;
         });
 
     </script>
