@@ -184,7 +184,7 @@ button:hover {
                     const roomCode = Math.random().toString(36).substring(2, 8).toUpperCase();
 
                     // Redirect to the new room
-                    window.location.href = `PW01.html?code=${roomCode}`;
+                   window.location.href = "{{url_for('left')}}";
 
                     // alert the user that of their roomcode
                     alert("Your roomcode is " + roomCode + ". Please share it for others to join.")
@@ -201,7 +201,7 @@ button:hover {
                     // If the roomCode exists
                     if(roomCode){
                     // Open a new window to join the room
-                    window.open(`PW01.html?code=${roomCode}`);
+                    window.location.href = "{{url_for('project')}}";
                     }
                     else{
                     // Otherwise tell the user to enter a valid roomcode
